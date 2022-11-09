@@ -51,7 +51,14 @@ class ArucoNode(rclpy.node.Node):
         # Big tags are 24in square (0.61m)
         # Tested tag is 20in sqaure (0.508m)
         self.declare_parameter("marker_size", .508)
+
+        # ArucoTag dictionary
+        # Original: DICT_5X5_250
+        # Second: DICT_4X4_250
+        # Third: DICT_6X6_250
+        # Fourth: DICT_7X7_250
         self.declare_parameter("aruco_dictionary_id", "DICT_5X5_250")
+
         self.declare_parameter("image_topic", "/arucotag/image")
         self.declare_parameter("camera_info_topic", "/arucotag/camera_info")
         self.declare_parameter("camera_frame", None)

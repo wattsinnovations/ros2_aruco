@@ -26,9 +26,16 @@ def main():
     dict_options = [s for s in dir(cv2.aruco) if s.startswith("DICT")]
     option_str = ", ".join(dict_options)
     dict_help = "Dictionary to use. Valid options include: {}".format(option_str)
+
+    # Original: DICT_5X5_250
+    # Second: DICT_4X4_250
+    # Third: DICT_6X6_250
+    # Fourth: DICT_7X7_250
+
     parser.add_argument('--dictionary', default="DICT_5X5_250", type=str,
                         choices=dict_options,
                         help=dict_help, metavar='')
+
     args = parser.parse_args()
 
     dictionary_id = cv2.aruco.__getattribute__(args.dictionary)
